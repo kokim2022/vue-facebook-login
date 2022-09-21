@@ -21,6 +21,7 @@ export const accountService = {
 async function login() {
     // login with facebook then authenticate with the API to get a JWT auth token
     FB.login(async function (response) {
+        console.log("response", response)
         let authResponse = response.authResponse
         if (!authResponse) return;
         await apiAuthenticate(authResponse.accessToken);
@@ -28,7 +29,7 @@ async function login() {
         const returnUrl = router.history.current.query['returnUrl'] || '/';
         router.push(returnUrl)
         // handle the response
-    }, { scope: 'public_profile,email, pages_show_list, pages_messaging, pages_manage_metadata, pages_read_engagement' })
+    }, { scope: 'public_profile,email' })
 
 }
 
