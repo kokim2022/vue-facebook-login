@@ -29,7 +29,7 @@ async function login() {
         const returnUrl = router.history.current.query['returnUrl'] || '/';
         router.push(returnUrl)
         // handle the response
-    }, { scope: 'public_profile,email' })
+    }, { scope: 'public_profile,email, pages_show_list, pages_messaging, pages_manage_metadata, pages_read_engagement' })
 
 }
 
