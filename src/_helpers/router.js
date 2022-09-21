@@ -12,6 +12,9 @@ const routes = [
     { path: '/', component: Home, beforeEnter: authGuard },
     { path: '/edit/:id', component: EditAccount, beforeEnter: authGuard },
     { path: '/login', component: Login },
+
+    // otherwise redirect to home
+    { path: '*', redirect: '/' }
 ];
 
 export const router = new Router({
