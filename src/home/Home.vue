@@ -9,7 +9,7 @@
                     <th>Facebook Id</th>
                     <th>Name</th>
                     <th>Extra Info</th>
-                    <th></th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
