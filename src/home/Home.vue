@@ -18,13 +18,13 @@
                     <td>{{account.facebookId}}</td>
                     <td>{{account.name}}</td>
                     <td>{{account.extraInfo}}</td>
-                    <td class="text-right" style="white-space: nowrap">
+                    <!-- <td class="text-right" style="white-space: nowrap">
                         <router-link :to="`/edit/${account.id}`" class="btn btn-sm btn-primary mr-1">Edit</router-link>
                         <button @click="deleteAccount(account.id)" class="btn btn-sm btn-danger btn-delete-account" :disabled="account.isDeleting">
                             <span v-if="account.isDeleting" class="spinner-border spinner-border-sm"></span>
                             <span v-else>Delete</span>
                         </button>
-                    </td>
+                    </td> -->
                 </tr>
                 <tr v-if="!accounts">
                     <td colspan="5" class="text-center">
