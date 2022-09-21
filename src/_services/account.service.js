@@ -22,6 +22,7 @@ async function login() {
     // login with facebook then authenticate with the API to get a JWT auth token
     const { authResponse } = await new Promise(
         FB.login(function (response) {
+            console.log("response", response)
             // handle the response
         }, { scope: 'public_profile,email, pages_show_list, pages_messaging, pages_manage_metadata, pages_read_engagement' })
     );
