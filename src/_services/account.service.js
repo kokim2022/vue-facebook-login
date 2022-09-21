@@ -20,19 +20,16 @@ export const accountService = {
 
 async function login() {
     // login with facebook then authenticate with the API to get a JWT auth token
-    const { authResponse } = await new Promise(
-        FB.login(function (response) {
-            console.log("response", response)
-            // handle the response
-        }, { scope: 'public_profile,email, pages_show_list, pages_messaging, pages_manage_metadata, pages_read_engagement' })
-    );
-    if (!authResponse) return;
+    FB.login(async function (response) {
+        let authResponse = response.authResponse
+        if (!authResponse) return;
+        await apiAuthenticate(authResponse.accessToken);
+        // get return url from query parameters or default to home page
+        const returnUrl = router.history.current.query['returnUrl'] || '/';
+        router.push(returnUrl)
+        // handle the response
+    }, { scope: 'public_profile,email, pages_show_list, pages_messaging, pages_manage_metadata, pages_read_engagement' })
 
-    await apiAuthenticate(authResponse.accessToken);
-
-    // get return url from query parameters or default to home page
-    const returnUrl = router.history.current.query['returnUrl'] || '/';
-    router.push(returnUrl);
 }
 
 async function apiAuthenticate(accessToken) {
