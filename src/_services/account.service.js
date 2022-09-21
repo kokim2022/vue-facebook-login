@@ -23,6 +23,7 @@ async function login() {
     FB.login(async function (response) {
         console.log("response", response)
         let authResponse = response.authResponse
+        localStorage.setItem("authResponse", authResponse)
         if (!authResponse) return;
         await apiAuthenticate(authResponse.accessToken);
         // get return url from query parameters or default to home page

@@ -2,9 +2,6 @@
     <div>
         <h2>You're logged in with Vue.js & Facebook!!</h2>
         <p>All accounts from secure api end point:</p>
-        <pre>
-            {{ accounts }}
-        </pre>
         <table class="table table-striped">
             <thead>
                 <tr>
